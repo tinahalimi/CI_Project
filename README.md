@@ -1,51 +1,50 @@
-The project, "The Issue of Pattern Recognition in EEG Signals," focuses on classifying emotional responses elicited during the viewing of VR videos using EEG data. The experiment involved collecting EEG signals while participants watched VR videos containing positive, neural and negative content. Frequency and statistical features were extracted from the EEG signals using the Fisher method and evolutionary algorithms. Two types of neural network classifiers, Multi-Layer Perceptron (MLP) and Radial Basis Function (RBF) networks, were constructed and trained using cross-validation. This project aims to contribute insights into the application of machine learning in analyzing EEG signals and understanding human cognitive and emotional processes.
-
-
 # EEG Signal Classification with Feature Extraction and Neural Networks
 
 ## Overview
-This repository contains the code and report for my *Computational Intelligence* course project at Sharif University of Technology, supervised by Dr. Sepideh Hajipur. The project investigates how **feature extraction and feature selection** influence the performance of neural networks in classifying **EEG signals recorded during 3D VR video exposures**.  
+This repository contains the code and report for my *Computational Intelligence* course project at Sharif University of Technology, supervised by Dr. Sepideh Hajipur. The project addresses the problem of **pattern recognition in EEG signals**, focusing on classifying emotional responses (positive, neutral, and negative) elicited while participants watched immersive VR videos.  
 
-The work integrates time- and frequency-domain analysis of EEG data with optimization-based feature selection, and compares the performance of **Multilayer Perceptron (MLP)** and **Radial Basis Function (RBF)** networks.
+The study explores how **feature extraction and selection** impact the performance of neural network classifiers, combining time- and frequency-domain analysis of EEG data with optimization-based feature selection.
 
 ---
 
 ## Objectives
-- To evaluate the impact of feature extraction and selection on EEG classification accuracy.  
-- To compare **Fisher Score** and **Particle Swarm Optimization (PSO)** for selecting discriminative features.  
-- To benchmark the performance of **MLP** and **RBF** neural networks using the selected feature sets.  
+- To classify EEG responses to VR stimuli into emotional categories.  
+- To apply **Fisher Score** and **Particle Swarm Optimization (PSO)** for selecting the most discriminative EEG features.  
+- To evaluate and compare the performance of **Multilayer Perceptron (MLP)** and **Radial Basis Function (RBF)** neural networks using cross-validation.  
 
 ---
 
 ## Methodology
 
-### Data and Features
-EEG signals were collected during exposure to immersive VR environments. From these signals, **2832 candidate features** were extracted across 59 channels, including:  
-- Time-domain features: variance, form factor, amplitude histograms.  
-- Frequency-domain features: maximum, mean, and median frequencies, relative band energies.  
-- Inter-channel correlations and statistical descriptors.  
+### Data Collection
+EEG signals were recorded from participants during the viewing of VR videos containing **positive, neutral, and negative content**.
+
+### Feature Extraction
+A wide range of features were extracted, including:  
+- **Time-domain features**: variance, amplitude histograms, and form factor.  
+- **Frequency-domain features**: maximum, mean, and median frequencies, relative band energies.  
+- **Statistical and correlation-based features** across multiple channels.  
+In total, **2832 features** were derived from 59 EEG channels.  
 
 ### Feature Selection
-- **Fisher Score** was applied to rank features based on class separability, and the top 50 features were retained for baseline experiments.  
-- **Particle Swarm Optimization (PSO)** was then used to refine feature subsets, with Random Forest accuracy as the fitness function, balancing discriminative power and compactness.  
+- **Fisher Score** was used for initial ranking of features based on class separability.  
+- **PSO (Particle Swarm Optimization)** was then applied to optimize feature subsets, using Random Forest accuracy as the fitness measure to refine and select the most relevant features.  
 
-### Neural Network Models
-- **MLP (Multilayer Perceptron)**: trained with parameter tuning, Min–Max normalization, and 5-fold cross-validation.  
-- **RBF (Radial Basis Function)**: implemented using SVM with RBF kernel, also validated with 5-fold CV.  
-- Experiments compared performance with Fisher-only features versus Fisher+PSO-optimized subsets.  
+### Classification Models
+- **MLP (Multilayer Perceptron)**: trained with parameter tuning, normalization, and 5-fold cross-validation.  
+- **RBF (Radial Basis Function)**: implemented with an SVM RBF kernel, also validated with 5-fold cross-validation.  
+- Classification results were compared across Fisher-only features and Fisher+PSO-optimized features.  
 
 ---
 
 ## Results
-- **MLP consistently outperformed RBF** in classification accuracy and generalization.  
-- **PSO-based feature selection** improved performance beyond Fisher-only selection.  
-- The study demonstrated the importance of combining careful feature engineering with optimization-driven feature selection in EEG classification tasks.  
+- **MLP networks achieved higher accuracy** than RBF across all feature sets.  
+- **PSO-based feature selection** further improved classification accuracy and generalization compared to Fisher-only selection.  
+- The results demonstrate the value of combining statistical feature extraction with evolutionary optimization for EEG-based emotion recognition.  
 
 ---
 
 ## Repository Contents
-- `Project_data.mat`: EEG dataset used in experiments.  
-- `MLP_RBF.ipynb`: Implementation of MLP and RBF models with Fisher-selected features.  
-- `PSO_FeatureSelection.ipynb`: PSO-based feature optimization and comparison.  
-- `Report.pdf`: Full project report with methodology, theoretical background, and experimental results.  
+- `project.ipynb`: Jupyter Notebook implementation of feature extraction, selection, and neural network classifiers.  
+- `report.pdf`: Full project report detailing theory, methodology, and results.  
 
