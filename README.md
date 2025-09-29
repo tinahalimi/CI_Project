@@ -49,6 +49,3 @@ EEG signals were collected during exposure to immersive VR environments. From th
 - `PSO_FeatureSelection.ipynb`: PSO-based feature optimization and comparison.  
 - `Report.pdf`: Full project report with methodology, theoretical background, and experimental results.  
 
-
-Sharif University of Technology – Electrical Engineering
-
